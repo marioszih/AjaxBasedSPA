@@ -1,7 +1,6 @@
 package com.example.userManager.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -49,8 +48,7 @@ public class UserController {
 	
 	@GetMapping("/edit/{id}")
     public ResponseEntity<User> getUser(@PathVariable Integer id) {
-        Optional<User> user = userRepository.findById(id);
-        return ResponseEntity.ok(user.get());
+        return ResponseEntity.ok(userRepository.findById(id).get());
     }
 	
 	@PutMapping("/edit/{id}")

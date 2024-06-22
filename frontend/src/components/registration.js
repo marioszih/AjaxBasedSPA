@@ -32,17 +32,20 @@ export default function RegistrationForm(){
 
     return (
         <form onSubmit={handleSubmit}>
-            <div class="mb-3">
+            <div class="mb-3 mt-4" align = "center">
                 <label>Name:</label>
-                <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+                <input type="text" name="name" class="form-control" style={{width: "370px", borderColor: 'black'}} 
+                value={formData.name} onChange={handleChange} required />
             </div>
-            <div class="mb-3">
+            <div class="mb-3" align = "center">
                 <label>Surname:</label>
-                <input type="text" name="surname" value={formData.surname} onChange={handleChange} required />
+                <input type="text" name="surname" class="form-control" style={{width: "370px", borderColor: 'black'}} 
+                value={formData.surname} onChange={handleChange} required />
             </div>
-            <div class="mb-3">
+            <div class="mb-3" align = "center">
                 <label>Email:</label>
-                <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+                <input type="email" name="email" class="form-control" style={{width: "370px", borderColor: 'black'}} 
+                value={formData.email} onChange={handleChange} required />
             </div>
             <button className = "btn btn-outline-primary" type="submit">Submit</button>
             <Link className="btn btn-outline-danger" to="/">Cancel</Link>

@@ -49,17 +49,20 @@ export default function Edit(){
 
     return (
         <form onSubmit={handleSubmit}>
-            <div className="mb-3">
+            <div className="mb-3 mt-4" align = "center">
                 <label>Name:</label>
-                <input type="text" name="name" value={name} onChange={onInputChange} required />
+                <input type="text" name="name" class="form-control" style={{width: "370px", borderColor: 'black'}} 
+                value={name} onChange={onInputChange} required />
             </div>
-            <div className="mb-3">
+            <div className="mb-3" align = "center">
                 <label>Surname:</label>
-                <input type="text" name="surname" value={surname} onChange={onInputChange} required />
+                <input type="text" name="surname" class="form-control" style={{width: "370px", borderColor: 'black'}} 
+                value={surname} onChange={onInputChange} required />
             </div>
-            <div className="mb-3">
+            <div className="mb-3" align = "center">
                 <label>Email:</label>
-                <input type="email" name="email" value={email} onChange={onInputChange} required />
+                <input type="text" name="email" class="form-control" style={{width: "370px", borderColor: 'black'}} 
+                value={email} onChange={onInputChange} required />
             </div>
             <button className = "btn btn-outline-primary" type="submit">Submit</button>
             <Link className="btn btn-outline-danger" to="/">Cancel</Link>

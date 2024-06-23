@@ -39,11 +39,13 @@ public class UserController {
 	}
 	
 	@DeleteMapping("/user/{id}")
-	public void deleteUser(@PathVariable Integer id) throws Exception {
-	    if (!userRepository.existsById(id)) {
-	    	throw new Exception();
+	public void deleteUser(@PathVariable Integer id) throws NullPointerException{
+	    if (userRepository.existsById(id)) {
+	    	userRepository.deleteById(id);
 	    }
-	    userRepository.deleteById(id);
+		else{
+			throw new NullPointerException("There is no user with id: " + id);
+		}
 	}
 	
 	@GetMapping("/edit/{id}")

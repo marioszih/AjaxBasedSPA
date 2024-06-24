@@ -40,12 +40,10 @@ public class UserController {
 	
 	@DeleteMapping("/user/{id}")
 	public void deleteUser(@PathVariable Integer id) throws NullPointerException{
-	    if (userRepository.existsById(id)) {
-	    	userRepository.deleteById(id);
-	    }
-		else{
+	    if (!userRepository.existsById(id)) {
 			throw new NullPointerException("There is no user with id: " + id);
-		}
+	    }
+		userRepository.deleteById(id);
 	}
 	
 	@GetMapping("/edit/{id}")
@@ -54,7 +52,7 @@ public class UserController {
     }
 	
 	@PutMapping("/edit/{id}")
-	public ResponseEntity<User> EditUser(@PathVariable Integer id, @RequestBody User userDetails) {
+	public ResponseEntity<User> editUser(@PathVariable Integer id, @RequestBody User userDetails) {
 		User user = userRepository.getReferenceById(id);
 		user.setName(userDetails.getName());
 		user.setSurname(userDetails.getSurname());
